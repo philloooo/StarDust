@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Band</title>
+</head>
+
+<style>
+
+    body{
+        font-size: 28pt;
+    }
+    #button1{
+        background: #F00;
+        width: 100%;
+        /*height: 200px;*/
+        display: block;
+        position: relative;
+        text-align: center;
+        padding:100px 0;
+        margin: auto;
+
+    }
+    #button2{
+        background: #00F;
+        width: 100%;
+        /*height: 200px;*/
+        display: block;
+        position: relative;
+        text-align: center;
+        padding:100px 0;
+        margin: auto;
+    }
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<body>
+
+<audio id="win" controls>
+    <source src="win.mp3">
+</audio>
+<audio id="bg" controls>
+    <source src="bg.mp3">
+</audio>
+
+<div id="button1">Button1</div>
+<div id="button2">Button2</div>
+
+</body>
+</html>
+
+        <script>
+            /*
+             * jquery-audioPlay.js
+             * by zhangxinxu	http://www.zhangxinxu.com/
+             * 2011-04-28 v1.0
+             */
+
+            (function($) {
+                $.fn.audioPlay = function(options) {
+                    var defaults = {
+                        name: "audioPlay",
+                        urlMp3: "",
+                        urlOgg: "",
+                        clone: false
+                    };
+                    var params = $.extend(defaults, options || {}), audioHtml = "";
+
+                    $(this).each(function(i) {
+                        var strIdRoot = params.name;
+                        tmpAutioHtml = '<audio id="'+ strIdRoot + i +'" controls="controls" preload="auto" style="position:absolute; visibility:hidden;">' +
+                                '<source src="'+ params.urlMp3 +'"></source>' +
+                                '<source src="'+ params.urlOgg +'"></source>' +
+                                '</audio>';
+                        if (params.clone) {
+                            audioHtml = audioHtml + tmpAutioHtml;
+                            $(this).data("targetId", strIdRoot + i);
+                        } else {
+                            if (!i) {
+                                audioHtml = tmpAutioHtml;
+                            }
+                            $(this).data("targetId", strIdRoot + "0");
+                        }
+                    });
+                    $("body").append(audioHtml);
+                    $(this).click(function() {
+                        var targetId = $(this).data("targetId");
+                        $("#" + targetId).get(0).play();
+                    });
+                };
+            })(jQuery);
+        </script>
+<script>
+
+    //    document.getElementById('button1').onclick = function() { document.getElementById('win').play() };
+    //    document.getElementById('button2').onclick = function() { document.getElementById('bg').play() };
+
+    $("#button1").audioPlay({
+//        name: "playOnce",
+        urlMp3: "win.mp3"
+    });
+
+    $("#button2").audioPlay({
+//        name: "playOnce",
+        urlMp3: "bg.mp3"
+    });
+
+</script>
