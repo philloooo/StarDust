@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>Page 1</h1>
+
+	<hr />
+
+	<form id="form">
+		<input type="text" id="msg" name="msg" />
+		<input type="submit" />
+	</form>
+
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script>
+	// Make a connection to the socket.io server
+	// This fires the "connection" event!!
+	var socket = io.connect('http://localhost:3000/');
+
+	var form = document.getElementById('form');
+	form.addEventListener("submit", function(e) {
+		e.preventDefault();
+
+		// emit to the server the "send" event, with our data object
+		socket.emit('send', {secretstuff:document.getElementById('msg').value});
+		
+		document.getElementById('msg').value = "";
+
+	});
+	</script>
+
+</body>
+</html>
