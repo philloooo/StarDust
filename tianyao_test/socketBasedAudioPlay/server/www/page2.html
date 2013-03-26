@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<audio id="myaudio" src="win.mp3"></audio>
+	<h1>Page 2</h1>
+
+	<!-- <h2 id="replace">Text to be replaced</h2> -->
+	<h2>Please wait for button-click on page 1 :)</h2>
+	<script src="http://128.237.174.82:3000/socket.io/socket.io.js"></script>
+	<script>
+	// Make a connection to the socket.io server
+	// This also fires the "connection" event, but it doesn't matter
+	var socket = io.connect('http://128.237.174.82:3000/');
+
+	// When getting a "receive" event from the server
+	socket.on('receive', function(data) {
+		// update the DOM with received data
+		//document.getElementById('replace').innerHTML = data.secretstuff;
+		if (data.secretstuff==="playPlease") {
+			quickClickPlayTest();
+		}
+	});
+
+	function quickClickPlayTest() {
+		isPaused = document.getElementById("myaudio").paused;
+		console.log(document.getElementById("myaudio").paused);
+		if (isPaused===true) {
+			document.getElementById("myaudio").play();
+		}
+		else {
+			document.getElementById("myaudio").pause();	
+			document.getElementById('myaudio').currentTime = 0
+			document.getElementById("myaudio").play();
+		}
+	}
+	</script>
+</body>
+</html>
