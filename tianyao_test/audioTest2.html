@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	function quickClickPlayTest() {
+		isPaused = document.getElementById("myaudio").paused;
+		console.log(document.getElementById("myaudio").paused);
+		if (isPaused===true) {
+			document.getElementById("myaudio").play();
+		}
+		else {
+			document.getElementById("myaudio").pause();	
+			document.getElementById('myaudio').currentTime = 0
+			document.getElementById("myaudio").play();
+		}
+	}
+	</script>
+</head>
+
+<body>
+
+	<audio id="myaudio" src="win.mp3"></audio>
+
+	<button onmouseover="document.getElementById('myaudio').play()">Hover me</button>
+	<button onclick="document.getElementById('myaudio').play()">click me</button>
+	<button onclick="quickClickPlayTest()">quick click</button>
+
+</body>
+</html>
