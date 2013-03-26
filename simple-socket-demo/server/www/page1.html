@@ -3,18 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-</head>
-<body>
-	<h1>Page 1</h1>
-
-	<hr />
-
-	<form id="form">
-		<input type="text" id="msg" name="msg" />
-		<input type="submit" />
-	</form>
-
 	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="soundDemo.js"></script>
 	<script>
 	// Make a connection to the socket.io server
 	// This fires the "connection" event!!
@@ -32,5 +22,24 @@
 	});
 	</script>
 
+
+</head>
+<body>
+	<h1>Page 1</h1>
+
+	<hr />
+
+	<form id="form">
+		<input type="text" id="msg" name="msg" />
+		<input type="submit" />
+	</form>
+    <audio id="win" controls>
+    <source src="win.mp3">
+    </audio>
+    <audio id="bg" controls>
+    <source src="bg.mp3">
+    </audio>
+<div id="button1">Button1</div>
+<div id="button2">Button2</div>
 </body>
 </html>
