@@ -1,0 +1,14 @@
+web server serve static files and ajax request
+socket server manage each client socket.io interface
+
+broadcast.emit send all clients but not the one open .broadcast.emit
+
+io.sockets.on('connection',fucntion(socket)P
+	chatroom[socket.id]=true;
+	socket.broadcast.emit('userJoined",socket.id)
+	
+	socket.on("disconnect" function(){
+		delete chatroom[socket.id];
+		io.sockets.emit('userLeft",socket.id);
+	}
+}
