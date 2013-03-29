@@ -10,11 +10,11 @@
 
 	<h2 id="replace">Text to be replaced</h2>
 
-	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="http://128.237.181.2:3000/socket.io/socket.io.js"></script>
 	<script>
 	// Make a connection to the socket.io server
 	// This also fires the "connection" event, but it doesn't matter
-	var socket = io.connect('http://localhost:3000/');
+	var socket = io.connect('http://128.237.181.2:3000/');
 
 	// When getting a "receive" event from the server
 	socket.on('receive', function(data) {
