@@ -16,17 +16,29 @@
         <link href="css/content.css" rel="stylesheet" type="text/css">
 
         <script src="libs/cordova-2.1.0.ios.js"></script>
+         <script src="libs/util.js"></script>        
+        <script src="libs/Transitioner.js"></script>
          <script src="libs/jq/jquery-1.8.2.min.js"></script>
+	<key>Plugins</key>
+<dict>
+    <key>Contacts</key>
+    <string>CDVContacts</string>
+</dict>
         <script>
 		$(window).ready(function(){
-			$("#save").click(saveContact);
-		}
-		function saveContact(){
+			$("#save").click(function(){
+			console.log("refresh");
 			var name=$("#name").val();
 			var note=$("#note").val();
 			var theContact=navigator.contacts.create({"displayName":name});
 			theContact.note=note;
-		}
+	theContact.save(function() {
+            navigator.notification.alert('Contact Saved');
+        }, function(err) {
+            navigator.notification.alert('Error on saving contact: '+err.code);
+        });
+		});
+		});
 	</script>
 	<body>
 		<form>
@@ -37,3 +49,4 @@
 			<button id="save">save</button>
 		</form>
 	</body>
+</html>

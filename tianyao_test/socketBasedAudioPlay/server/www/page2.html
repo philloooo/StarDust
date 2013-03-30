@@ -20,11 +20,11 @@
 		<input type="submit" />
 	</form>
 
-	<script src="http://128.237.181.2:3000/socket.io/socket.io.js"></script>
+	<script src="http://128.237.207.28:3000/socket.io/socket.io.js"></script>
 	<script>
 	// Make a connection to the socket.io server
 	// This also fires the "connection" event, but it doesn't matter
-	var socket = io.connect('http://128.237.181.2:3000/');
+	var socket = io.connect('http://128.237.207.28:3000/');
 
 	// When getting a "receive" event from the server
 	socket.on('receive', function(data) {
