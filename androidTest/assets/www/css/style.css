@@ -1,0 +1,47 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-tap-highlight-color: rgbd(0, 0, 0, 0);
+    -moz-user-select: none;
+}
+
+input {
+    -webkit-user-select: text;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    color: #CCCCCC;
+    background: #444444;
+}
+
+button {
+    border: none;
+    padding: 1em;
+    color: #CCCCCC;
+    border-radius: .25em;
+}
+
+.buttonUp {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#555555));
+    background: -webkit-linear-gradient(top, #666666, #555555);
+    background: -moz-linear-gradient(top, #666666, #555555);
+    background: linear-gradient(top, #666666, #555555);
+}
+
+.buttonDown {
+    background: #009999; /* light-blueish */
+    margin-top: .75em;
+    margin-bottom: .25em;
+    -webkit-box-shadow: inset 0 0 .5em #000000;
+    -moz-box-shadow: inset 0 0 .5em #000000;
+    box-shadow: inset 0 0 .5em #000000;
+}
+
+#picture {
+    width: 90%;
+    margin-left: 5%;
+    background: #555555;
+}

@@ -1,0 +1,19 @@
+#header {
+    height: 3.5em;
+    width: 100%;
+    background: #333333;
+}
+
+#back {
+    position: absolute;
+    left: .5em;
+    top: 0px;
+    padding: .5em;
+    height: 2.5em;
+}
+
+#title {
+    font-size: 1.25em;
+    line-height: 3.0em;
+    text-align: center;
+}

@@ -20,12 +20,12 @@
 		<input type="submit" />
 	</form>
 
-	<script src="http://128.237.207.28:3000/socket.io/socket.io.js"></script>
+	<script src="http://128.237.174.37:3000/socket.io/socket.io.js"></script>
 	<script>
 	// Make a connection to the socket.io server
 	// This also fires the "connection" event, but it doesn't matter
-	var socket = io.connect('http://128.237.207.28:3000/');
-	alert(socket)
+	var socket = io.connect('http://128.237.174.37:3000/');
+
 	// When getting a "receive" event from the server
 	socket.on('receive', function(data) {
 		// update the DOM with received data
@@ -44,7 +44,7 @@
 		// emit to the server the "send" event, with our data object
 		//socket.emit('send', {secretstuff:document.getElementById('msg').value});
 		socket.emit('send', {secretstuff:"play1Please"});
-		
+	        quickClickPlayTest(1);
 		//document.getElementById('msg').value = "";
 
 	});
@@ -55,7 +55,7 @@
 		// emit to the server the "send" event, with our data object
 		//socket.emit('send', {secretstuff:document.getElementById('msg').value});
 		socket.emit('send', {secretstuff:"play2Please"});
-		
+		quickClickPlayTest(2);		
 		//document.getElementById('msg').value = "";
 
 	});

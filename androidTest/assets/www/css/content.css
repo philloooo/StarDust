@@ -1,0 +1,30 @@
+#content button {
+    width: 100%;
+}
+
+#content > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    padding: 1em;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+#content {
+    overflow-x: hidden;
+    position: absolute;
+    right: 0em;
+    left: 0em;
+    top: 3em;
+    bottom: 0em;
+}
+
+#fileView > input {
+    width: 100%;
+    font-size: 1.5em;
+}
