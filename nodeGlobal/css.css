@@ -1,0 +1,20 @@
+:before 
+:after allow you to insert element before and after the element
+
+min-width:
+rendering area 
+min-device width:
+width of device screen
+
+
+clear the div above it:
+#foo {float:left}
+#container {overflow:hidden}
+
+
+
+
+
+
+#foo {float:left;}
+.clearfix {clear:both;} insert before the elemenet you want

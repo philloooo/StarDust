@@ -14,6 +14,6 @@ io.sockets.on('connection', function(socket){
 		// this is a broadcast message.
 
 		// Broadcast a "receive" event with the data received from "send"
-		io.sockets.emit('receive', data);
+		socket.broadcast.emit('receive', data);
 	});
 });

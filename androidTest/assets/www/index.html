@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">   
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/PGLowLatencyAudio.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Monoton" rel="stylesheet" type="text/css">
+    <script src="http://128.237.198.239:3000/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/connectSocket.js"></script>
+    <script type="text/javascript" src="js/playMusic.js"></script> 
+   
+    <style>
+        
+        * {
+            -webkit-overflow-scrolling: none;
+        }
+        
+        body {
+            background-color:#222;
+            background-image: url('assets/carbonFiber.png');
+        }
+            
+        div {
+            position:absolute;
+            width: 46%;
+            height: 44%;
+            border-radius: 20px;
+            border: 5px solid rgba(50,50,50,.5);
+            background-color:rgba(255,140,0,.8);  
+            font-family: 'Monoton', cursive;
+            font-size: 50pt;
+        }
+        
+        #bassdrum {
+            left:20px;
+            bottom:20px;
+        }
+        #snaredrum {
+            right:20px;
+            bottom:20px;
+        }
+        #highhatdrum {
+            right:20px;
+            top:100px;
+        }
+        #bongodrum {
+            left:20px;
+            top:100px;
+        }
+        
+        .touched {
+            background-color:rgba(255,140,0,.6);  
+            border: 5px solid rgba(50,50,50,.8); 
+        }
+    </style>
+               
+  </head>
+  <body onload="onBodyLoad()">
+      <form >
+	<input type="text" id="socketUrl" placeholder="url for socket"/>
+	<button name="Submit" ontouchstart="getServer();" id="submitUrl" value="Update">submit Url</button> 
+      </form>
+      <div id="bassdrum" ontouchstart="touchInstrument('bassdrum')" ontouchend="touchend(event)">Bass</div>
+      <!-- <div id="bassDiv" ontouchstart="bass();" ontouchend="touchend(event)">Bass</div> -->
+
+      <div id="highhatdrum" ontouchstart="touchInstrument('highhatdrum');" ontouchend="touchend(event)">High Hat</div>
+      <!-- <div id="snareDiv" ontouchstart="touchSnare();" ontouchend="touchend(event)">Snare</div> -->
+      <div id="snaredrum" ontouchstart="touchInstrument('snaredrum');" ontouchend="touchend(event)">Snare</div>
+      
+      <div id="bongodrum" ontouchstart="touchInstrument('bongodrum');" ontouchend="touchend(event)">bongo</div>
+      
+  </body>
+</html>
